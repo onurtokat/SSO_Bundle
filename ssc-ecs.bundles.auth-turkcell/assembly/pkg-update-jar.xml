@@ -1,0 +1,23 @@
+<assembly>
+	<id>update-bundle-jar</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<baseDirectory>/</baseDirectory>
+    <fileSets>
+        <fileSet>
+			<directory>${project.build.directory}/extract</directory>
+			<outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>axis-1.4.jar</exclude>
+            </excludes>
+		</fileSet>
+        <fileSet>
+			<directory>lib/</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+                <include>axis-1.4.jar</include>
+            </includes>
+		</fileSet>
+	</fileSets>
+</assembly>

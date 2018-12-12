@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
+        http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
+
+
+	<!-- <osgi:reference id="ssoService" interface="com.motive.ecs.applications.ssc.auth.turkcell.ISimulatedSso"/> -->
+
+	<bean id="turkcellLoginSsoService"
+		class="com.motive.ecs.applications.ssc.auth.turkcell.TurkcellLoginSsoService">
+	</bean>
+
+	<!-- expose it as an OSGI service -->
+	<osgi:service ref="turkcellLoginSsoService">
+		<osgi:interfaces>
+			<value>org.springframework.security.authentication.AuthenticationProvider</value>
+			<value>com.motive.ecs.applications.ssc.security.core.LogoutHandler</value>
+		</osgi:interfaces>
+		<service-properties>
+			<entry key="ecs.ssc" value="true" />
+			<entry key="auth.provider.sso" value="true" />
+			<entry key="auth.provider.login" value="true" />
+			<entry key="description" value="TURKCELLAUTHPROVIDER" />
+		</service-properties>
+	</osgi:service>
+</beans>

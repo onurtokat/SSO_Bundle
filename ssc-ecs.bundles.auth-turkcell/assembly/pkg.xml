@@ -1,0 +1,23 @@
+<assembly>
+	<id>bundle</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<baseDirectory>/</baseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>target/</directory>
+			<outputDirectory>/deploy</outputDirectory>
+			<includes>
+                <include>*.jar</include>
+            </includes>
+		</fileSet>
+		<fileSet>
+			<directory>target/config</directory>
+			<outputDirectory>/etc</outputDirectory>
+			<includes>
+                <include>*.cfg</include>
+            </includes>
+		</fileSet>
+	</fileSets>
+</assembly>

@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>deployment.turkcell.ssc-ecs</groupId>
+		<artifactId>ssc-ecs</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>ssc-ecs.bundles.auth-turkcell</artifactId>
+	<packaging>bundle</packaging>
+	<name>SSC ECS Turkcell :: Bundles :: Authentication</name>
+	<description>Motive SSC ECS Turkcell Authentication Bundle</description>
+
+	<properties>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jetty</artifactId>
+			<version>${camel.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>${jmockit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<version>${camel.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${osgi.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-core</artifactId>
+			<version>${spring-osgi-core.version}</version>
+		</dependency>
+		<!-- JAXB -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-security</artifactId>
+			<version>${camel.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>motive.thirdparty.bouncycastle</groupId>
+			<artifactId>bcprov</artifactId>
+			<version>1.29.0</version>
+		</dependency>
+		<dependency>
+			<groupId>motive.hsd.ecs</groupId>
+			<artifactId>ecs.bundles.morse</artifactId>
+			<version>${ecs.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>motive.smp.MORSE</groupId>
+			<artifactId>MorseRestCommon</artifactId>
+			<version>${smp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>motive.hsd.ssc</groupId>
+			<artifactId>ssc-ecs.bundles.ssc</artifactId>
+			<version>${ssc-ecs-originalproduct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>motive.hsd.ssc</groupId>
+			<artifactId>ssc-ecs.bundles.security</artifactId>
+			<version>${ssc-ecs-originalproduct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<!-- Axis dependency -->
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-saaj</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxrpc-api-osgi</artifactId>
+			<version>1.1-b01</version>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis-wsdl4j</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxrpc-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-clean-plugin</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<!-- END Axis dependency -->
+
+		<!-- Base64 codec dependency -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>camel-activemq</Bundle-SymbolicName>
+						<Import-Package>*,org.apache.activemq.camel.component</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>process-resources</phase>
+
+						<goals>
+							<goal>copy-resources</goal>
+
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/config</outputDirectory>
+
+
+							<resources>
+								<resource>
+									<directory>${basedir}/src/main/resources/config</directory>
+									<filtering>true</filtering>
+
+
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven-bundle-plugin.version}</version>
+				<configuration>
+					<instructions>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Bundle-Name>${project.artifactId}</Bundle-Name>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Description>${project.description}</Bundle-Description>
+						<Import-Package>
+							com.motive.ecs.morse,
+							com.motive.ecs.applications.ssc.security.core,
+							com.motive.ecs.applications.ssc.security.core.impl,
+						</Import-Package>
+						<DynamicImport-Package>*</DynamicImport-Package>
+						<Private-Package>!*</Private-Package>
+
+						<Embed-Dependency>
+							axis;scope=compile|runtime,
+							axis-jaxrpc;scope=compile|runtime,
+							axis-saaj;scope=compile|runtime,
+							jaxrpc-api-osgi;scope=compile|runtime,
+							axis-wsdl4j;scope=compile|runtime,
+							commons-discovery;scope=compile|runtime,
+							jaxrpc-api;scope=compile|runtime,
+							commons-logging;scope=compile|runtime
+						</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
+
+						<Export-Package>
+							com.motive.ecs.applications.ssc.auth.turkcell,
+							com.turkcell.example.auth.webservice
+						</Export-Package>
+					</instructions>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>unpack-jar</id>
+						<phase>package</phase>
+
+						<goals>
+							<goal>unpack</goal>
+
+						</goals>
+						<configuration>
+							<artifactItems>
+
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+
+									<type>jar</type>
+									<outputDirectory>${project.build.directory}/extract</outputDirectory>
+
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>assemble-update-jar</id>
+						<phase>package</phase>
+
+						<goals>
+							<goal>single</goal>
+
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+
+							<descriptors>
+								<descriptor>assembly/pkg-update-jar.xml</descriptor>
+
+
+							</descriptors>
+							<archive>
+								<manifestFile>${project.build.directory}/extract/META-INF/MANIFEST.MF</manifestFile>
+
+							</archive>
+						</configuration>
+					</execution>
+					<execution>
+						<id>assemble-process-zip</id>
+						<phase>package</phase>
+
+						<goals>
+							<goal>single</goal>
+
+						</goals>
+						<configuration>
+							<appendAssemblyId>true</appendAssemblyId>
+
+							<descriptors>
+								<descriptor>assembly/pkg.xml</descriptor>
+
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+
+						<goals>
+							<goal>attach-artifact</goal>
+
+						</goals>
+						<configuration>
+
+
+							<artifacts>
+								<artifact>
+									<file>${project.build.directory}/${project.build.finalName}-bundle.zip</file>
+
+									<type>zip</type>
+									<classifier>bundle</classifier>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>build-helper-maven-plugin</artifactId> 
+				<version>1.9</version> <executions> <execution> <id>add-source</id> <phase>generate-sources</phase> 
+				<goals> <goal>add-source</goal> </goals> <configuration> <sources> <source>C:\Users\psautogl\Desktop\MotiveProjects\turktelekom\ssc-ecs\trunk\auth\src\main\java\com</source> 
+				</sources> </configuration> </execution> </executions> </plugin> <plugin> 
+				<groupId>org.codehaus.mojo</groupId> <artifactId>jaxws-maven-plugin</artifactId> 
+				<version>1.12</version> <configuration> <wsdlDirectory>C:\Users\psautogl\Desktop\MotiveProjects\turktelekom\ssc-ecs\trunk</wsdlDirectory> 
+				<packageName>code.generate.ws</packageName> <keep>true</keep> <sourceDestDir>C:\Users\psautogl\Desktop\MotiveProjects\turktelekom\ssc-ecs\trunk\auth\src\main\java\com</sourceDestDir> 
+				</configuration> <executions> <execution> <goals> <goal>wsimport</goal> </goals> 
+				</execution> </executions> </plugin> > -->
+
+		</plugins>
+	</build>
+</project>
